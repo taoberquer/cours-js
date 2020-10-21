@@ -84,5 +84,5 @@ function yoda(chaine) {
     toRetrun = value + ' ' + toRetrun;
   }
 
-  return toRetrunslice(0, -1);
+  return toRetrun.slice(0, -1);
 }
