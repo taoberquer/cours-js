@@ -15,11 +15,12 @@ function capitalize(chaine) {
   return toRetrun.substring(1);
 }
 
+console.log(camelCase('ToggleCase is_the coolest'));
 function camelCase(chaine) {
   if (typeof chaine !== "string" || chaine === "") return "";
 
   toRetrun = "";
-  for (value of chaine.split('/[ _]+/')) {
+  for (value of chaine.split(/[\s\_]+/)) {
       toRetrun += capitalize(value);
   }
 
