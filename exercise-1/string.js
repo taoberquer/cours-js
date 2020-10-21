@@ -15,7 +15,6 @@ function capitalize(chaine) {
   return toRetrun.substring(1);
 }
 
-console.log(camelCase('ToggleCase is_the coolest'));
 function camelCase(chaine) {
   if (typeof chaine !== "string" || chaine === "") return "";
 
@@ -58,10 +57,6 @@ function leet(chaine) {
   return toRetrun;
 }
 
-function prop_access (obj, path) {
-
-}
-
 function verlan (chaine) {
   if (typeof chaine !== "string" || chaine === "") return "";
 
@@ -86,4 +81,12 @@ function yoda(chaine) {
   }
 
   return toRetrun.slice(0, -1);
+}
+
+function prop_access (obj, path) {
+
+}
+
+function vig() {
+
 }
