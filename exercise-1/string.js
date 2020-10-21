@@ -46,27 +46,13 @@ function leet(chaine) {
 function verlan (chaine) {
   if (typeof chaine !== "string" || chaine === "") return "";
 
-  toRetrun = "";
-  for (value of chaine.split(' ')) {
-    reverse = '';
-    for (char of value.split('')) {
-      reverse = char + reverse;
-    }
-    toRetrun += ' ' + reverse;
-  }
-
-  return toRetrun.substring(1);
+  return chaine.split(' ').map((word) => word.split('').reverse().join('')).join(' '); 
 }
 
 function yoda(chaine) {
   if (typeof chaine !== "string" || chaine === "") return "";
-
-  toRetrun = "";
-  for (value of chaine.split(' ')) {
-    toRetrun = value + ' ' + toRetrun;
-  }
-
-  return toRetrun.slice(0, -1);
+  
+  return str.split(' ').reverse().join(' ');
 }
 
 function prop_access (obj, path) {
@@ -74,8 +60,6 @@ function prop_access (obj, path) {
   if (typeof path !== "string" || path === "") return obj;
   let res =  path.split('.').reduce((prev, curr) => prev && prev[curr] , obj);
   return res === undefined ? console.log(path + " not exist") : res ;
-
-  
 }
 
 function vig() {
