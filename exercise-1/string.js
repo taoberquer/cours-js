@@ -20,7 +20,7 @@ function camelCase(chaine) {
 
   toRetrun = "";
   for (value of chaine.split(' ')) {
-      toRetrun += ucfirst(value);
+      toRetrun += capitalize(value);
   }
 
   return toRetrun;
@@ -50,7 +50,8 @@ function leet(chaine) {
 
   toRetrun = "";
   for (value of chaine.split('')) {
-      toRetrun += value.toLowerCase in vowelObj ? vowelObj.value.toLowerCase : value; 
+    index = value.toLowerCase();
+      toRetrun += index in vowelObj ? vowelObj[index] : value; 
   }
    
   return toRetrun;
