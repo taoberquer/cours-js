@@ -7,59 +7,40 @@ function ucfirst(chaine) {
 function capitalize(chaine) {
   if (typeof chaine !== "string" || chaine === "") return "";
 
-  toRetrun = "";
-  for (value of chaine.split(' ')) {
-      toRetrun += ' ' + ucfirst(value.toLowerCase());
-  }
-
-  return toRetrun.substring(1);
+  return chaine.split(' ').map((word) => ucfirst(word.toLocaleLowerCase())).join(' ');
 }
 
-console.log(camelCase('ToggleCase is_the coolest'));
 function camelCase(chaine) {
   if (typeof chaine !== "string" || chaine === "") return "";
 
-  toRetrun = "";
-  for (value of chaine.split(/[\s\_]+/)) {
-      toRetrun += capitalize(value);
-  }
-
-  return toRetrun;
+  return capitalize(chaine).replace(/\W/g, '');
 }
 
 function snake_case(chaine) {
   if (typeof chaine !== "string" || chaine === "") return "";
 
-  toRetrun = "";
-  for (value of chaine.split(' ')) {
-      toRetrun += '_' + value.toLowerCase();
-  }
-  
-  return toRetrun.substring(1);
+  return chaine.toLocaleLowerCase().replace(/\W/g, '_')
 }
 
 function leet(chaine) {
   if (typeof chaine !== "string" || chaine === "") return "";
-  vowelObj = {
-    'a' : '4', 
-    'e' : '3', 
-    'i' : '1', 
-    'o' : '0', 
-    'u' : '(_)', 
-    'y' : '7'
-  }
-
-  toRetrun = "";
-  for (value of chaine.split('')) {
-    index = value.toLowerCase();
-      toRetrun += index in vowelObj ? vowelObj[index] : value; 
-  }
-   
-  return toRetrun;
-}
-
-function prop_access (obj, path) {
-
+  
+  return chaine.replace(/[aeiouy]/gi, function(e) {
+    switch(e.toLowerCase) {
+      case 'a':
+        return '4';
+      case 'e':
+        return '3';
+      case 'i':
+        return '1';
+      case 'o':
+        return '0';
+      case 'u':
+        return '(_)';
+      case 'y':
+        return '7'
+    }
+  });
 }
 
 function verlan (chaine) {
@@ -86,4 +67,17 @@ function yoda(chaine) {
   }
 
   return toRetrun.slice(0, -1);
+}
+
+function prop_access (obj, path) {
+  if(obj === null) obj = {};
+  if (typeof path !== "string" || path === "") return obj;
+  let res =  path.split('.').reduce((prev, curr) => prev && prev[curr] , obj);
+  return res === undefined ? console.log(path + " not exist") : res ;
+
+  
+}
+
+function vig() {
+
 }
