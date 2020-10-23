@@ -9,7 +9,7 @@ function type_check_v1(value, type) {
         case 'array':
           return Array.isArray(value);
         case 'object':
-          return value !== null && Array.isArray(value);
+          return value !== null && ! Array.isArray(value);
         default:
           return false;
       }
@@ -20,7 +20,7 @@ function type_check_v1(value, type) {
 
 function type_check_v2(value, checkers) {
   if ('type' in checkers && ! type_check_v1(value, checkers.type)) return false;
-  if ('value' in checkers && value != checkers.value) return false;
+  if ('value' in checkers && value !== checkers.value) return false;
   if ('enum' in checkers && ! checkers.enum.includes(value)) return false;
 
   return true;
