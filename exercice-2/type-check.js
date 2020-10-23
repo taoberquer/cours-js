@@ -14,8 +14,5 @@ function type_check_v2(value, checkers) {
 }
 
 function type_check(value, checkers) {
-  if (! type_check_v1(value, 'object'))
-    return type_check(value, 'object');
-
-  // value.map((property))
+  if (! type_check_v2(value, checkers)) return false;
 }
